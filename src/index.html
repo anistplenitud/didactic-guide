@@ -1,17 +1,378 @@
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Vanilla JavaScript App</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <script src="http://yui.yahooapis.com/3.17.2/build/yui/yui-min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    
+
+    <title>Interactive Lab </title>
+
+    <style>
+        .yui3-dial-value-string {
+            color: white;
+            
+        }
+
+        .yui3-skin-sam .yui3-dial-value-string {
+            color: white;
+        }
+    </style>
+
 </head>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+<body style="background-color: black; color: white;">
 
-<body>
-  <main>
-    <h1>Vanilla JavaScript App</h1>
-  </main>
+
+    <div class="container" style="height: 150px;">
+    </div>
+      
+
+    <div class="container-fluid" >
+
+        <div class="row">
+            <div class="col-sm">
+                        <!-- Cylinder -->
+                <div id="cylinder" style="padding: 50px;width: 300px;height: 500px;background-image: url(Cylinder.png);background-repeat: no-repeat;background-size: 300px 400px;">
+                    
+                    <!-- First Four Molecules -->
+                    <div id="molecule_1" class="molecule" style="position: absolute;border-radius: 50%; background-color: blue; width: 50px; height: 50px;">
+
+                    </div>
+
+                    <div id="molecule_2" class="molecule" style="left:200px;position: absolute;border-radius: 50%; background-color: blue; width: 50px; height: 50px;">
+
+                    </div>
+
+                    <div id="molecule_3" class="molecule"  style="top:300px;left:150px;position: absolute;border-radius: 50%; background-color: blue; width: 50px; height: 50px;">
+
+                    </div>
+
+                    <div id="molecule_4" class="molecule"  style="top:300px;left:150px;position: absolute;border-radius: 50%; background-color: blue; width: 50px; height: 50px;">
+
+                    </div>
+
+                    <!-- Second Four -->
+
+                    <div id="molecule_5" class="molecule" style="position: absolute; top: 250px;left:200px; border-radius: 50%; background-color: blue; width: 50px; height: 50px;">
+
+                    </div>
+
+                    <div id="molecule_6" class="molecule" style="top: 250px;left:100px;position: absolute;border-radius: 50%; background-color: blue; width: 50px; height: 50px;">
+
+                    </div>
+
+                    <div id="molecule_7" class="molecule"  style="top:250px;left:50px;position: absolute;border-radius: 50%; background-color: blue; width: 50px; height: 50px;">
+
+                    </div>
+
+                    <div id="molecule_8" class="molecule"  style="top:250px;left:150px;position: absolute;border-radius: 50%; background-color: blue; width: 50px; height: 50px;">
+
+                    </div>
+
+                    <!-- Third Four -->
+
+                    <div id="molecule_9" class="molecule" style="position: absolute; top: 250px;left:200px; border-radius: 50%; background-color: blue; width: 50px; height: 50px;">
+
+                    </div>
+
+                    <div id="molecule_10" class="molecule" style="top: 250px;left:100px;position: absolute;border-radius: 50%; background-color: blue; width: 50px; height: 50px;">
+
+                    </div>
+
+                    <div id="molecule_11" class="molecule"  style="top:250px;left:50px;position: absolute;border-radius: 50%; background-color: blue; width: 50px; height: 50px;">
+
+                    </div>
+
+                    <div id="molecule_12" class="molecule"  style="top:250px;left:150px;position: absolute;border-radius: 50%; background-color: blue; width: 50px; height: 50px;">
+
+                    </div>
+
+                </div>
+                        <!-- Cylinder end -->
+                        <div class="container">
+                            <!-- Heat dial-->
+                            <div style="background-color: antiquewhite;">
+                                <div class="yui3-skin-sam" style="background-color: antiquewhite;">
+                                    <div id="heatMeterSetting" style="position:absolute; bottom:200px;height:100px;">
+                        
+                                    </div>
+                        
+                                </div>
+                            </div>
+                            
+                            
+                            <!-- Heat dial end-->
+                        </div>
+                        <br>
+                        <br><br><br><br><br><br>
+            </div>
+
+            <div class="col-sm">
+                <!-- Examples of Matter-->
+                <div>
+
+                    <table class="table" style="color: white;">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name of Compound</th>
+                            <th scope="col">Temperature</th>
+                            <th scope="col">State</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr id="solid-state">
+                            <th scope="row">1</th>
+                            <td>Ice</td>
+                            <td>0 (&#8451)</td>
+                            <td>Solid</td>
+                          </tr>
+                          <tr id="liquid-state">
+                            <th scope="row">2</th>
+                            <td>Water</td>
+                            <td>0 (&#8451) < 99 (&#8451)</td>
+                            <td>Liquid</td>
+                          </tr>
+                          <tr id="gas-state">
+                            <th scope="row">3</th>
+                            <td>Steam/Vapour</td>
+                            <td>100 (&#8451)<br><br>
+                                <i>in industry, superheated steam can reach temperatures up to 600°C or even more under high pressure</i>
+                            </td>
+                            <td>Gas</td>
+                          </tr>
+
+                          <tr id="plasma-state">
+                            <th scope="row">4</th>
+                            <td>Hydrogen and Oxygen plasma</td>
+                            <td>6093 (&#8451)<br><br>
+                                <i>The core of plasma ranges in temperature from 6093 (&#8451) – 7760 (&#8451). Examples include stars and lightning. Some noble gases can be in a plasma state at room temparate (20(&#8451) - 25(&#8451))</i>
+                            </td>
+                            <td>Plasma</td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <script>
+        
+
+        $(document).ready(function () {
+
+            var val = 0;
+            
+
+            YUI().use('dial', function(Y) {
+            
+                var dial = new Y.Dial({
+                    min:0,
+                    max:110,
+                    stepsPerRevolution:100,
+                    value: 0,
+                    strings : {label:'Temperature (&#8451)', resetStr:'Reset', tooltipHandle:'Drag to set value'}
+                });
+            
+                dial.render('#heatMeterSetting');
+
+                //Start State  - Temperate set to zero degrees celcius
+
+                myMoleculeMoves();
+
+                $(".yui3-dial-value-string").css("color","white");
+
+
+                // Get and set the value as an attribute
+                val = dial.get('value');
+                console.log(val);
+
+
+                $('.yui3-dd-draggable').mouseup(function(){
+                    myMoleculeMoves();
+                });
+
+                $('.yui3-dial-reset-str').mouseup(function(){
+                    myMoleculeMoves();
+                });
+
+                $('.yui3-dial-center-button').mouseup(function(){
+                    myMoleculeMoves();
+                });
+                
+
+
+                //dial.set('value',val + 10);
+                val = dial.get('value');
+
+                function myMoleculeVibrates() {
+
+                    val = dial.get('value');
+                    console.log(val);
+                    var distanceadjust = val / 10;
+                    console.log(distanceadjust);
+                    switch(true) {
+                        case (distanceadjust < 4):
+                            $('.molecule').effect( "shake",{times:1 , distance: 1});
+                            break;
+                        case (distanceadjust > 4 && distanceadjust < 10):
+                            $('.molecule').effect( "shake",{times:3 , distance: 5});
+                            break;
+                        case (distanceadjust > 9):
+                            $('.molecule').effect( "shake",{times:3 , distance: 15});
+                            break;
+                        case (distanceadjust > 11):
+                            $('.molecule').effect( "shake",{times:3 , distance: 25});
+                            break;
+                        default:
+                            $('.molecule').effect( "shake",{times:1 , distance: 1});
+                        }
+                    
+                        console.log(distanceadjust)
+
+                }
+               // setInterval(myMoleculeVibrates, 1000);
+
+            // const myInterval = setInterval(myMoleculeMoves, 500);
+
+                function myMoleculeMoves() {
+                    
+                    val = dial.get('value');
+                    console.log(val);
+
+                    var distanceadjust = val / 10;
+                    switch(true) {
+                        case (distanceadjust < 4):
+
+                            $('#molecule_1').animate({top: "480px", left:"110px"},2000);
+                            $('#molecule_2').animate({top: "480px", left:"190px"},2000);
+                            $('#molecule_3').animate({top: "480px", left:"150"}, 2000);
+                            $('#molecule_4').animate({top: "480px", left:"70px"}, 2000);
+
+                            $('#molecule_5').animate({top: "430px", left:"70px"}, 2000);
+                            $('#molecule_6').animate({top: "430px", left:"110px"}, 2000);
+                            $('#molecule_7').animate({top: "430px", left:"190px"}, 2000);
+                            $('#molecule_8').animate({top: "430px", left:"150px"}, 2000);
+
+                            $('#molecule_9').animate({top: "380px", left:"70px"}, 2000);
+                            $('#molecule_10').animate({top: "380px", left:"110px"}, 2000);
+                            $('#molecule_11').animate({top: "380px", left:"190px"}, 2000);
+                            $('#molecule_12').animate({top: "380px", left:"150px"}, 2000);
+
+                            $("#solid-state").css("color","gold");
+                            $("#liquid-state").css("color","white");
+                            $("#gas-state").css("color","white");
+
+                            $("#solid-state").show();
+                            $("#liquid-state").hide();
+                            $("#gas-state").hide();
+                            $("#plasma-state").hide();
+
+                            break;
+                        case (distanceadjust > 4 && distanceadjust < 10):
+                            
+                            $('#molecule_1').animate({top: "480px", left:"60px"}, 1000);
+                            $('#molecule_2').animate({top: "480px", left:"155px"}, 1000);
+                            $('#molecule_3').animate({top: "480px", left:"205px"}, 1000);
+                            $('#molecule_4').animate({top: "480px", left:"105px"}, 1000);
+
+                            $('#molecule_5').animate({top: "430px", left:"105px"}, 1000);
+                            $('#molecule_6').animate({top: "430px", left:"155px"}, 1000);
+                            $('#molecule_7').animate({top: "430px", left:"60px"}, 1000);
+                            $('#molecule_8').animate({top: "430px", left:"205px"}, 1000);
+
+                            $('#molecule_9').animate({top: "380px", left:"60px"}, 1000);
+                            $('#molecule_10').animate({top: "380px", left:"105px"}, 1000);
+                            $('#molecule_11').animate({top: "380px", left:"205px"}, 1000);
+                            $('#molecule_12').animate({top: "380px", left:"155px"}, 1000);
+
+                            $("#solid-state").css("color","white");
+                            $("#liquid-state").css("color","gold");
+                            $("#gas-state").css("color","white");
+
+                            $("#solid-state").hide();
+                            $("#liquid-state").show();
+                            $("#gas-state").hide();
+                            $("#plasma-state").hide();
+
+                            break;
+
+                        case (distanceadjust > 9):
+
+                            $('#molecule_1').animate({top: "0px", left:"205px"}, 2000);
+                            $('#molecule_2').animate({top: "0px", left:"265px"}, 2000);
+                            $('#molecule_3').animate({top: "0px", left:"105px"}, 2000);
+                            $('#molecule_4').animate({top: "0px", left:"30px"}, 2000);
+
+                            $('#molecule_5').animate({top: "-50px", left:"40px"}, 2000);
+                            $('#molecule_6').animate({top: "-50px", left:"95px"}, 2000);
+                            $('#molecule_7').animate({top: "-50px", left:"195px"}, 2000);
+                            $('#molecule_8').animate({top: "-50px", left:"245px"}, 2000);
+
+                            $('#molecule_9').animate({top: "-100px", left:"275px"}, 1800);
+                            $('#molecule_10').animate({top: "-100px", left:"125px"}, 1800);
+                            $('#molecule_11').animate({top: "-100px", left:"215px"}, 1800);
+                            $('#molecule_12').animate({top: "-100px", left:"25px"}, 1800);
+
+                            $("#solid-state").css("color","white");
+                            $("#liquid-state").css("color","white");
+                            $("#gas-state").css("color","gold");
+
+                            $("#solid-state").hide();
+                            $("#liquid-state").hide();
+                            $("#gas-state").show();
+                            $("#plasma-state").show();
+
+                        default:
+                            $('.molecule').effect( "shake",{times:1 , distance: 1});
+                        }
+
+                        console.log(distanceadjust)
+
+                    }
+                
+                function clearMyInterval() {
+                        clearInterval(myInterval);
+                }
+
+                //setInterval(clearMyInterval, 600);
+                
+                
+        
+            });
+
+            var molecules = {
+                count : 10,
+                distance : 0
+            }
+
+            
+
+
+
+
+        });
+
+
+
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
-
 </html>
